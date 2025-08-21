@@ -1,0 +1,73 @@
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    perspective: 1000px; /* Habilita a perspectiva 3D para o efeito flip */
+}
+
+/* Container que centraliza o flashcard */
+.container-flashcard {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* O cartão em si, que será "virado" */
+.flashcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+/* Estilo para a frente e o verso do cartão */
+.frente-flashcard, .verso-flashcard {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde a face de trás */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+/* Estilo específico para a frente do cartão */
+.frente-flashcard {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Estilo específico para o verso do cartão */
+.verso-flashcard {
+    background-color: #333;
+    color: #fff;
+    transform: rotateY(180deg); /* Vira o verso em 180 graus no eixo Y */
+}
+
+/* Efeito ao passar o mouse: vira o cartão */
+.container-flashcard:hover .flashcard {
+    transform: rotateY(180deg);
+}
+
+/* Títulos e conteúdos */
+.titulo-flashcard {
+    font-size: 24px;
+    margin: 0;
+}
+.conteudo-flashcard {
+    font-size: 18px;
+    line-height: 1.5;
+}
